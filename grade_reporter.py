@@ -1,7 +1,8 @@
-scores = [85, 72, 90, 45, 68, 77, 55]
+scores = [72, 45, 90, 61, 38]
 
+passed = 0
+failed = 0
 total = 0
-count_pass = 0
 
 for score in scores:
     if score >= 80:
@@ -13,12 +14,17 @@ for score in scores:
     else:
         grade = "F"
 
-    if grade != "F":
-        count_pass += 1
+    print(score, grade)
 
-    total += score
-    print(f"Score {score}: {grade}")
+    if score >= 50:
+        passed = passed + 1
+    else:
+        failed = failed + 1
+
+    total = total + score
 
 average = total / len(scores)
-print(f"Average: {average:.1f}")
-print(f"Passed: {count_pass} of {len(scores)}")
+
+print("Passed:", passed)
+print("Failed:", failed)
+print("Average:", round(average, 1))
