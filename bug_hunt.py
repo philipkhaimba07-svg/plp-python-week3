@@ -1,16 +1,11 @@
- Goal: add up the numbers 1 to 5. Expected total: 15.
- BUG: range(1, 5) stops at 4, so 5 is never added.
- The program runs with no error but prints 10 instead of 15.
- FIX: use range(1, 6).
-
+count = 1
 total = 0
-for n in range(1, 6):
-    total += n
-print("Total:", total)
 
- While loop: it stops when count reaches 0,
- because the condition count > 0 becomes False.
-count = 3
-while count > 0:
-    print(count)
-    count -= 1
+BUG: The while line had no colon at the end, which gave a SyntaxError. I added the colon.
+BUG: The condition count < 5 stopped the loop before 5 was added, so the total was 10 and there was no error. I changed it to count <= 5.
+while count <= 5:
+    total = total + count
+    count = count + 1
+
+BUG: I tried to join a string and a number with +, which gave a TypeError. I wrapped total in str().
+print("Sum of 1 to 5 is: " + str(total))
